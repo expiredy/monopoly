@@ -1,0 +1,1 @@
+fields_price_and_stats_database_table_name = "fields_price_and_stats"

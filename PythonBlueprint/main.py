@@ -1,4 +1,4 @@
-from IdConfig import *
+from PythonBlueprint.configs.IdConfig import *
 from random import choice
 
 # facets_count = 4
