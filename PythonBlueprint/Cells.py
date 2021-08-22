@@ -1,8 +1,12 @@
+from configs.keysConfig import *
+from sqlite3 import connect
+
+cursor = connect(DATABASE_PATH).cursor()
+print(cursor.execute(f"""SELECT * FROM {fields_main_data_table_name} WHERE 
+                """).fetchall())
+
+
 class StartCell:
-    pass
-
-
-class PolicemanCell:
     pass
 
 
