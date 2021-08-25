@@ -41,7 +41,6 @@ class GameSession:
         self.corner_cells = [start_field_id, jail_field_id, added_corner_field_id, prison_teleport_field_id]
         self.field_blueprint = self.get_blueprint_of_field_builder()
         self.fields_loaded = self.fields_loader()
-        print(self.field_blueprint)
         print(self.fields_loaded)
 
     def get_quota_with_added_lonely_fields(self, initial_field_quota_dict):
@@ -71,7 +70,7 @@ class GameSession:
                 for facet_id in range(self.facets_count)]
 
     def fields_loader(self):
-        return [StandardField(field_id) for field_id in game_fields_object_linker]
+        return [[StandardField(field_id) for field_id in line_of_ids] for line_of_ids in self.field_blueprint]
 
 
 a = GameSession()
