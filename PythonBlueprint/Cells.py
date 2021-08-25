@@ -1,9 +1,7 @@
 from configs.keysConfig import *
 from sqlite3 import connect
 
-cursor = connect(DATABASE_PATH).cursor()
-print(cursor.execute(f"""SELECT * FROM {fields_main_data_table_name} WHERE 
-                """).fetchall())
+CURSOR = connect(DATABASE_PATH).cursor()
 
 
 class StartCell:
@@ -21,7 +19,10 @@ class StandardField:
         self.game_states_loader(field_id)
 
     def game_states_loader(self, field_id):
-        pass
+        data = CURSOR.execute(f"""SELECT * FROM {fields_main_data_table_name}
+                                  WHERE {field_id_string_key} = {field_id}
+                                  """).fetchall()
+        print(data)
 
     def player_entered(self, player_id):
         self.including_players_by_id.append(player_id)

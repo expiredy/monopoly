@@ -57,4 +57,3 @@ rovio_field_id = 33
 
 apple_field_id = 34
 nokia_field_id = 35
-
