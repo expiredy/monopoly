@@ -3,11 +3,20 @@ body{
     
 }
 
-.game-table-field{
+.game-table-field-card{
     background-attachment: fixed;
     background-color: rgb(104, 104, 104);
 }
 
-.game-table-field:hover{
+.game-table-field-card:hover{
     background-color: rgb(173, 173, 173);
 }
+
+.game-table-field-text{
+    font-family: sans-serif;
+}
+
+.game-table-side{
+    background-color: rgb(40, 40, 40)
+}
+

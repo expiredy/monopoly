@@ -1,18 +1,29 @@
 const TOTAL_GAME_TABLE_SIDES_COUNT = 4;
 const TOTAL_FIELD_ON_SIDE_COUNT = 8;
+
 const MAIN_FIELD_STYLE_CLASS_NAME = "someCssClassName"
 
+// css classes' names
+const STANDARD_LINE_FIELD_STYLE_CLASS = "game-table-field-card";
+const STANDARD_SIDE_STYLE_CLASS = "game-table-side"
+const STANDARD_FIELD_TEXT_STYLE_CLASS = "game-table-field-text"
+
 const gameTableDiv = document.createElement('div');
-т
-for (var sideId = 0; sideId < TOTAL_GAME_Table_SIDES_COUNT; ++sideId) {
+
+
+for (var sideId = 0; sideId < TOTAL_GAME_TABLE_SIDES_COUNT; ++sideId) {
     const gameTableSideDiv = document.createElement('div');
-    for (var FieldOnSideId = 0; FieldOnSideId < TOTAL_Field_ON_SIDE_COUNT; ++FieldOnSideId) {
-        const FieldUnderlineDiv = document.createElement('div');
-        // FieldUnderlineDiv.className = MAIN_Field_STYLE_CLASS_NAME;
-        const FieldIconDiv = document.createElement("h1") 
+    gameTableSideDiv.className = STANDARD_SIDE_STYLE_CLASS;
+    for (var fieldOnSideId = 0; fieldOnSideId < TOTAL_FIELD_ON_SIDE_COUNT; ++fieldOnSideId) {
+        const fieldUnderlineDiv = document.createElement('div');
+        fieldUnderlineDiv.className = STANDARD_LINE_FIELD_STYLE_CLASS;
+
+        const FieldIconDiv = document.createElement("h1");
         FieldIconDiv.innerText = "Game Table";
-        FieldUnderlineDiv.append(FieldIconDiv);
-        gameTableSideDiv.append(FieldUnderlineDiv);
+        FieldIconDiv.className = STANDARD_FIELD_TEXT_STYLE_CLASS;
+        
+        fieldUnderlineDiv.append(FieldIconDiv);
+        gameTableSideDiv.append(fieldUnderlineDiv);
     }
     gameTableDiv.append(gameTableSideDiv);
 }

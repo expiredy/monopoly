@@ -7,7 +7,7 @@ const fileSystem = require("fs");
 const LOBBY_PAGE_PATH = ".\\frontend\\markups\\menu\\lobby_page.html";
 const MAIN_GAME_TABLE_PATH = ".\\frontend\\markups\\game\\game_field.html";
 
-// css classes' names
+
 
 webApp.get("/", function(request, response){ 
     fileSystem.readFile(LOBBY_PAGE_PATH, function(error, html_page) {
