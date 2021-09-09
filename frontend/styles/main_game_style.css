@@ -1,15 +1,19 @@
 body{
-    background-color: rgb(36, 36, 36);
-    
+    margin: 0.5%;
+    background: radial-gradient(rgb(34, 34, 34), rgb(40, 40, 40));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .game-table-field-card{
     background-attachment: fixed;
+    border-style: groove;
     background-color: rgb(104, 104, 104);
 }
 
 .game-table-field-card:hover{
     background-color: rgb(173, 173, 173);
+    border-style: ridge;
 }
 
 .game-table-field-text{

@@ -5,11 +5,13 @@ const MAIN_FIELD_STYLE_CLASS_NAME = "someCssClassName"
 
 // css classes' names
 const STANDARD_LINE_FIELD_STYLE_CLASS = "game-table-field-card";
-const STANDARD_SIDE_STYLE_CLASS = "game-table-side"
-const STANDARD_FIELD_TEXT_STYLE_CLASS = "game-table-field-text"
+const STANDARD_SIDE_STYLE_CLASS = "game-table-side";
+const STANDARD_FIELD_TEXT_STYLE_CLASS = "game-table-field-text";
 
-const gameTableDiv = document.createElement('div');
+// html elements ids
+const TABLE_FIELDS_BODY_DIV_ID = "game-table-field";
 
+const gameTableDiv = document.getElementById(TABLE_FIELDS_BODY_DIV_ID)
 
 for (var sideId = 0; sideId < TOTAL_GAME_TABLE_SIDES_COUNT; ++sideId) {
     const gameTableSideDiv = document.createElement('div');
@@ -27,5 +29,3 @@ for (var sideId = 0; sideId < TOTAL_GAME_TABLE_SIDES_COUNT; ++sideId) {
     }
     gameTableDiv.append(gameTableSideDiv);
 }
-console.log(gameTableDiv );
-document.body.append(gameTableDiv);
