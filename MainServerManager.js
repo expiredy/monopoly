@@ -6,8 +6,9 @@ const fileSystem = require("fs");
 // paths config
 const LOBBY_PAGE_PATH = ".\\frontend\\markups\\menu\\lobby_page.html";
 const MAIN_GAME_TABLE_PATH = ".\\frontend\\markups\\game\\game_field.html";
+const MAIN_STYLESHEETS_LOCATION_PATH = "..\\..\\styles\\";
 
-function getHtmlPage(request, response, htmlPagePath) {
+function showHtmlPage(request, response, htmlPagePath) {
     fileSystem.readFile(htmlPagePath, function(error, html_page) {
         if (error) {
             console.log(error)
@@ -19,27 +20,45 @@ function getHtmlPage(request, response, htmlPagePath) {
     })
 }
 
-function getCssStylesheet(request, response, cssFilePath) {
-
+function sendCssStylesheet(request, response) {
+    var stylesheet_file_name = request.param("stylesheet_file_name");
+    fileSystem.writeFile(MAIN_STYLESHEETS_LOCATION_PATH + stylesheet_file_name, function(error, stylesheet_file) {
+        if (error){
+            console.log(error);
+            return;
+        }
+        response.writeHead(200, {"Content-Type": "text/css"});
+        response.write(stylesheet_file);
+        response.end();
+    })
 }
 
 function getImageByPath(request, response, imagePath) {
 
 }
 
-// web pages
+function startScriptViewComponent(request, response){
+    fileSystem.writeFile()
+}
+
+// stylesheets
+webApp.get("/stylesheet", function(request, response){ 
+    sendCssStylesheet(request, response)
+})
+
+// scripts
+webApp.get("/script_view_component", function(request, response){ 
+    
+})
+
+// web pages listeners
 webApp.get("/", function(request, response){ 
-    getHtmlPage(request, response, LOBBY_PAGE_PATH);
+    showHtmlPage(request, response, LOBBY_PAGE_PATH);
 });
 
 webApp.get("/game", function(request, response) {
-    getHtmlPage(request, response, MAIN_GAME_TABLE_PATH);
+    showHtmlPage(request, response, MAIN_GAME_TABLE_PATH);
 })
 
-// stylesheets
-
-webApp.get("", function(request, response){ 
-
-})
 
 webApp.listen(process.env.PORT || 3000, () => console.log("listening on port http://localhost:3000"));
