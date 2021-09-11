@@ -4,8 +4,8 @@ const webApp = express();
 const fileSystem = require("fs");
 
 // paths config
-const LOBBY_PAGE_PATH = ".\\frontend\\markups\\menu\\lobby_page.html";
-const MAIN_GAME_TABLE_PATH = ".\\frontend\\markups\\game\\game_field.html";
+const LOBBY_PAGE_PATH = ".\\frontend\\lobby_page.html";
+const MAIN_GAME_TABLE_PATH = ".\\frontend\\game_field.html";
 
 const MAIN_STYLESHEETS_LOCATION_PATH = ".\\frontend\\styles\\";
 const MAIN_VIEW_SCRIPT_PATH = ".\\frontend\\scripts\\"
@@ -88,6 +88,10 @@ webApp.get("/", function(request, response){
 
 webApp.get("/game", function(request, response) {
     showHtmlPage(response, MAIN_GAME_TABLE_PATH);
+})
+
+webApp.get("/login", function(request, response) {
+    
 })
 
 webApp.listen(process.env.PORT || 3000, () => console.log("listening on port http://localhost:3000"));
