@@ -5,7 +5,7 @@ import GameField from "./../pages/GameField/GameField";
 
 function App() {
   return (
-      <GameField />
+      <GameField sessionId={1}/>
   );
 }
 
