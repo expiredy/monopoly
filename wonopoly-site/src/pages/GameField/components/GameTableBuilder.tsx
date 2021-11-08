@@ -1,14 +1,16 @@
 import React from 'react';
 
 function GameFieldGenerator(){
+    var gameFieldConstructor: [] = [];
     return (
-        <div></div>
+        <div>{gameFieldConstructor}</div>
     );
 }
 
 
 function PlayersSectionGenerator(){
-    return (<div></div>);
+    var mainConstructor: [] = [];
+    return(<div>{mainConstructor}</div>);
 }
 
 function GameTableBuilder(){
