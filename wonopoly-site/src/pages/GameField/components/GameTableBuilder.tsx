@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 function GameFieldGenerator(){
     var gameFieldConstructor: [] = [];
     return (
@@ -22,6 +23,7 @@ function GameTableBuilder(){
             </div>
             {GameFieldGenerator()}
             {PlayersSectionGenerator()}
+
         </div>
     );
 }
