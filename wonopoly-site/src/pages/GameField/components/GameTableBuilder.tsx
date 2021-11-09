@@ -24,7 +24,6 @@ function GameTableBuilder(){
             {GameFieldGenerator()}
             {PlayersSectionGenerator()}
 
-
         </div>
     );
 }
