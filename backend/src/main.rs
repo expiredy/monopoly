@@ -1,16 +1,41 @@
-#[macro_use] extern crate rocket;
+use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
+use serde::Serialize;
+
+
+#[derive(Serialize)]
+struct Measurement {
+    temperature: f32,
+}
+
 
 #[get("/")]
-fn index() -> &'static str {
-    "Hello, world!"
+async fn hello() -> impl Responder {
+    HttpResponse::Ok().body("Hello world!")
 }
 
-#[get("/create-session/<user_id>")]
-fn create_session(user_id: String) -> String{
-    return user_id;
+#[post("/echo")]
+async fn echo(req_body: String) -> impl Responder {
+    HttpResponse::Ok().body(req_body)
 }
 
-#[launch]
-fn rocket() -> _ {
-    rocket::build().mount("/", routes![index, create_session])
+async fn manual_hello() -> impl Responder {
+    HttpResponse::Ok().body("Hey there!")
+}
+
+
+async fn current_temperature() -> impl Responder {
+    web::Json(Measurement { temperature: 42.3 })
+}
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(|| {
+        App::new()
+            .service(hello)
+            .service(echo)
+            .route("/hey", web::get().to(manual_hello))
+    })
+    .bind("127.0.0.1:8080")?
+    .run()
+    .await
 }
